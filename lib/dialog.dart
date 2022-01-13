@@ -1,10 +1,31 @@
+import 'package:custom_alert_dialogs/action.dart';
+import 'package:custom_alert_dialogs/dialog_details.dart';
 import 'package:flutter/material.dart';
 
 class CustomDialog extends StatelessWidget {
-  const CustomDialog({Key? key}) : super(key: key);
+  String? title;
+  String? content;
+  String? type;
+  AlertAction? action1;
+  AlertAction? action2;
+
+  CustomDialog(
+      {Key? key,
+      this.title,
+      this.content,
+      this.type,
+      this.action1,
+      this.action2})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    DialogDetails details = DialogDetails(
+        context: context,
+        title: title!,
+        content: content,
+        action1: action1,
+        action2: action2);
     return Dialog(
       backgroundColor: Colors.transparent,
       elevation: 0,
@@ -24,9 +45,9 @@ class CustomDialog extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text(
-                  'Error',
-                  style: TextStyle(
+                Text(
+                  details.title!,
+                  style: const TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.w700,
                   ),
@@ -34,63 +55,14 @@ class CustomDialog extends StatelessWidget {
                 const SizedBox(
                   height: 15,
                 ),
-                const Text(
-                  'The quick brown fox jumped over the lazy dog. The quick brown fox jumped over the lazy dog. The quick brown fox jumped over the lazy dog. The quick brown fox jumped over the lazy dog.',
-                  style: TextStyle(fontSize: 20),
+                Text(
+                  details.content!,
+                  style: const TextStyle(fontSize: 20),
                 ),
                 const SizedBox(
                   height: 20,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Expanded(child: SizedBox(
-                      width: 200,
-                      child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10)),
-                          onPressed: () {
-                            Navigator.of(context).pop();
-                          },
-                          child: const Text(
-                            'OK',
-                            style: TextStyle(fontSize: 18),
-                          )),
-                    ),),
-                    //SizedBox(width: 20,),
-                    // Expanded(child: SizedBox(
-                    //   width: 200,
-                    //   child: ElevatedButton(
-                    //       style: ElevatedButton.styleFrom(
-                    //         primary: Colors.redAccent,
-                    //           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                    //       ),
-                    //       onPressed: () {
-                    //         Navigator.of(context).pop();
-                    //       },
-                    //       child: const Text(
-                    //         'CANCEL',
-                    //         style: TextStyle(fontSize: 18),
-                    //       )),
-                    // ),)
-                  ],
-                ),
-                // Align(
-                //   alignment: Alignment.center,
-                //   child: SizedBox(
-                //     width: 200,
-                //     child: ElevatedButton(
-                //       style: ElevatedButton.styleFrom(
-                //           padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10)),
-                //         onPressed: () {
-                //           Navigator.of(context).pop();
-                //         },
-                //         child: const Text(
-                //           'OK',
-                //           style: TextStyle(fontSize: 18),
-                //         )),
-                //   ),
-                // ),
+                details.actionButtons()
               ],
             ),
           ),

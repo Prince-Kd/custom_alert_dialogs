@@ -13,10 +13,16 @@ class Home extends StatelessWidget {
       ),
       body: Center(
         child: ElevatedButton(
-          onPressed: (){
-            showDialog(context: context, builder: (context) {
-              return const CustomDialog();
-            });
+          onPressed: () {
+            showDialog(
+                context: context,
+                builder: (context) {
+                  return CustomDialog(
+                    title: 'Login',
+                    content: 'Login successful',
+                    type: 'success',
+                  );
+                });
           },
           child: const Text('Open Dialog'),
         ),
