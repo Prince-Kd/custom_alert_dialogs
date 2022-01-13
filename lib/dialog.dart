@@ -23,6 +23,7 @@ class CustomDialog extends StatelessWidget {
     DialogDetails details = DialogDetails(
         context: context,
         title: title!,
+        type: type,
         content: content,
         action1: action1,
         action2: action2);
@@ -38,7 +39,7 @@ class CustomDialog extends StatelessWidget {
           Container(
             padding:
                 const EdgeInsets.only(left: 20, top: 55, right: 20, bottom: 20),
-            margin: const EdgeInsets.only(top: 45),
+            margin: const EdgeInsets.only(top: 35),
             decoration: BoxDecoration(
                 color: Colors.white, borderRadius: BorderRadius.circular(20)),
             child: Column(
@@ -47,7 +48,8 @@ class CustomDialog extends StatelessWidget {
               children: [
                 Text(
                   details.title!,
-                  style: const TextStyle(
+                  style: TextStyle(
+                    color: details.titleColor(),
                     fontSize: 24,
                     fontWeight: FontWeight.w700,
                   ),
@@ -73,12 +75,9 @@ class CustomDialog extends StatelessWidget {
                 child: Container(
                     decoration: BoxDecoration(
                         color: Colors.white,
-                        borderRadius: BorderRadius.circular(50)),
-                    child: const Icon(
-                      Icons.error,
-                      color: Colors.red,
-                      size: 100,
-                    )),
+                        borderRadius: BorderRadius.circular(30)),
+                    child: details.icon()
+                ),
               )),
         ],
       ),

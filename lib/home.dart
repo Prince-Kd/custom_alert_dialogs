@@ -1,3 +1,4 @@
+import 'package:custom_alert_dialogs/action.dart';
 import 'package:custom_alert_dialogs/dialog.dart';
 import 'package:flutter/material.dart';
 
@@ -6,10 +7,17 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    dynamic cancel(){
+      return Navigator.pop(context);
+    }
+    void okay(){
+      print('Okay baby!!');
+    }
     return Scaffold(
       appBar: AppBar(
         title: const Text('CUSTOM ALERT DIALOG'),
         centerTitle: true,
+        backgroundColor: Colors.white,
       ),
       body: Center(
         child: ElevatedButton(
@@ -19,8 +27,10 @@ class Home extends StatelessWidget {
                 builder: (context) {
                   return CustomDialog(
                     title: 'Login',
-                    content: 'Login successful',
-                    type: 'success',
+                    content: 'The quick brown fox jumped over the lazy dog.',
+                    type: 'error',
+                    action1: AlertAction(function: okay, text: 'OK'),
+                    action2: AlertAction(function: cancel, text: 'CANCEL'),
                   );
                 });
           },
