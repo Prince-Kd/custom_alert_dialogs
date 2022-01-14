@@ -35,13 +35,13 @@ class DialogDetails {
   Widget icon() {
     switch (type) {
       case 'success':
-        return const Icon(Icons.check_circle, color: Colors.green, size: 60);
+        return const Icon(Icons.check_circle, color: Colors.green, size: 80);
       case 'error':
-        return const Icon(Icons.error, color: Colors.red, size: 60);
+        return const Icon(Icons.error, color: Colors.red, size: 80);
       case 'info':
-        return const Icon(Icons.info, color: Colors.amber, size: 60);
+        return const Icon(Icons.info, color: Colors.amber, size: 80);
       default:
-        return const Icon(Icons.info, color: Colors.amber, size: 60);
+        return const Icon(Icons.info, color: Colors.amber, size: 80);
     }
   }
 

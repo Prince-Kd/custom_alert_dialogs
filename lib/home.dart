@@ -26,11 +26,11 @@ class Home extends StatelessWidget {
                 context: context,
                 builder: (context) {
                   return CustomDialog(
-                    title: 'Login',
-                    content: 'The quick brown fox jumped over the lazy dog.',
-                    type: 'error',
-                    action1: AlertAction(function: okay, text: 'OK'),
-                    action2: AlertAction(function: cancel, text: 'CANCEL'),
+                    title: 'Warning',
+                    content: 'Are you sure you want to log out?',
+                    type: 'info',
+                    action1: AlertAction(function: okay, text: 'NO'),
+                    action2: AlertAction(function: cancel, text: 'YES'),
                   );
                 });
           },

@@ -39,7 +39,7 @@ class CustomDialog extends StatelessWidget {
           Container(
             padding:
                 const EdgeInsets.only(left: 20, top: 55, right: 20, bottom: 20),
-            margin: const EdgeInsets.only(top: 35),
+            margin: const EdgeInsets.only(top: 40),
             decoration: BoxDecoration(
                 color: Colors.white, borderRadius: BorderRadius.circular(20)),
             child: Column(
@@ -75,7 +75,7 @@ class CustomDialog extends StatelessWidget {
                 child: Container(
                     decoration: BoxDecoration(
                         color: Colors.white,
-                        borderRadius: BorderRadius.circular(30)),
+                        borderRadius: BorderRadius.circular(40)),
                     child: details.icon()
                 ),
               )),
